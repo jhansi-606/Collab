@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>KFC Chicken Dashboard</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #fffaf0;
+    }
+
+    .app {
+      display: flex;
+      height: 100vh;
+    }
+
+    .sidebar {
+      width: 220px;
+      background-color: #e4002b;
+      color: white;
+      padding: 20px;
+    }
+
+    .sidebar h2 {
+      font-size: 24px;
+      margin-bottom: 30px;
+    }
+
+    .sidebar ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .sidebar li {
+      margin: 20px 0;
+      cursor: pointer;
+      transition: color 0.3s;
+    }
+
+    .sidebar li:hover {
+      color: #ffc107;
+    }
+
+    .main {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .header {
+      height: 60px;
+      background-color: #fff;
+      border-bottom: 1px solid #ccc;
+      display: flex;
+      align-items: center;
+      padding: 0 20px;
+    }
+
+    .header h3 {
+      margin: 0;
+      margin-left: 10px;
+      color: #e4002b;
+    }
+
+    .content {
+      padding: 20px;
+    }
+
+    .card {
+      background-color: white;
+      border-radius: 8px;
+      box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+      padding: 20px;
+      margin-bottom: 20px;
+    }
+
+    .card h3 {
+      margin-top: 0;
+      color: #e4002b;
+    }
+
+    .kfc-logo {
+      height: 40px;
+    }
+  </style>
+</head>
+<body>
+  <div id="root"></div>
+
+  <!-- React and ReactDOM via CDN -->
+  <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
+  <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
+  <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+
+  <!-- React App Script -->
+  <script type="text/babel">
+    const { useState } = React;
+
+    function Sidebar() {
+      return (
+        <div className="sidebar">
+          <h2>KFC Admin</h2>
+          <ul>
+            <li>Dashboard</li>
+            <li>Orders</li>
+            <li>Menu</li>
+            <li>Customers</li>
+            <li>Reports</li>
+          </ul>
+        </div>
+      );
+    }
+
+    function Header() {
+      return (
+        <div className="header">
+          <img
+            className="kfc-logo"
+            src="https://1000logos.net/wp-content/uploads/2021/05/KFC-logo.png"
+            alt="KFC Logo"
+          />
+          <h3>Welcome, Manager!</h3>
+        </div>
+      );
+    }
+
+    function Dashboard() {
+      return (
+        <div className="content">
+          <div className="card">
+            <h3>Total Sales</h3>
+            <p>$23,500</p>
+          </div>
+          <div className="card">
+            <h3>New Orders</h3>
+            <p>124 Orders Today</p>
+          </div>
+          <div className="card">
+            <h3>Top Selling Item</h3>
+            <p>Hot & Crispy Chicken Bucket</p>
+          </div>
+        </div>
+      );
+    }
+
+    function App() {
+      return (
+        <div className="app">
+          <Sidebar />
+          <div className="main">
+            <Header />
+            <Dashboard />
+          </div>
+        </div>
+      );
+    }
+
+    ReactDOM.createRoot(document.getElementById('root')).render(<App />);
+  </script>
+</body>
+  </html>
+  
